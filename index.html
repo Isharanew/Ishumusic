@@ -13,6 +13,7 @@ background:linear-gradient(to bottom,#000,#111);
 color:white;
 }
 
+/* NAV */
 nav{
 display:flex;
 justify-content:space-between;
@@ -24,23 +25,16 @@ backdrop-filter:blur(10px);
 border-bottom:1px solid #222;
 }
 
-nav h1{margin:0;font-size:26px}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-}
-
+/* HERO */
 .hero{
 display:flex;
 flex-wrap:wrap;
 justify-content:space-between;
 align-items:center;
-padding:80px 40px;
+padding:70px 40px;
 }
 
-.hero h2{
+.hero h1{
 font-size:50px;
 margin:0;
 }
@@ -50,16 +44,18 @@ color:#bbb;
 max-width:400px;
 }
 
+/* BUTTON */
 .btn{
-padding:12px 20px;
+padding:12px 18px;
 background:white;
 color:black;
 border:none;
 border-radius:10px;
-margin-top:15px;
 cursor:pointer;
+margin-top:15px;
 }
 
+/* GRID */
 .section{
 padding:40px;
 }
@@ -70,10 +66,18 @@ grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
 }
 
+/* CARD */
 .card{
 background:#161616;
 border-radius:15px;
 overflow:hidden;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.08);
+box-shadow:0 10px 30px rgba(255,255,255,0.1);
 }
 
 .card img{
@@ -86,30 +90,44 @@ object-fit:cover;
 padding:10px;
 }
 
-footer{
-text-align:center;
-padding:20px;
-border-top:1px solid #222;
-color:#888;
+/* PLAYER */
+.player{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#111;
+padding:15px;
+border-radius:15px;
+border:1px solid #333;
+display:none;
+gap:10px;
+align-items:center;
+}
+
+.player button{
+padding:6px 10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
 }
 </style>
-
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
-<h1>🎵 Ishumusic</h1>
-<div>
-    <a href="index.html">Home</a>
+<h2>🎵 Ishumusic</h2>
+<a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-</div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 <div>
-<h2>Feel The Beat</h2>
+<h1>Feel The Beat</h1>
 <p>Discover trending songs and premium music vibes in one place.</p>
 <button class="btn">Play Now</button>
 </div>
@@ -118,39 +136,63 @@ color:#888;
 style="width:100%;max-width:400px;border-radius:20px;">
 </section>
 
-<section id="music" class="section">
+<!-- MUSIC -->
+<section class="section">
 <h2>Trending Music</h2>
 
 <div class="grid">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop">
+<div class="card" onclick="playSong('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3','Night Vibes')">
+<img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200">
 <div>Night Vibes</div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop">
+<div class="card" onclick="playSong('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3','Studio Beats')">
+<img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200">
 <div>Studio Beats</div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=1200&auto=format&fit=crop">
+<div class="card" onclick="playSong('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3','Live Energy')">
+<img src="https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=1200">
 <div>Live Energy</div>
 </div>
 
 </div>
 </section>
 
-<section id="about" class="section">
-<h2>About Ishumusic</h2>
-<p style="color:#bbb">
-Modern music platform for discovering trending songs, playlists and vibes.
-</p>
-</section>
+<!-- PLAYER -->
+<div class="player" id="player">
+<span id="songName">Playing</span>
+<button onclick="toggle()">Play/Pause</button>
+<button onclick="closePlayer()">Close</button>
+<audio id="audio"></audio>
+</div>
 
-<footer>
-© 2026 Ishumusic - All Rights Reserved
-</footer>
+<script>
+let audio = document.getElementById("audio");
+let player = document.getElementById("player");
+let songName = document.getElementById("songName");
+
+function playSong(src,name){
+audio.src = src;
+audio.play();
+songName.innerText = name;
+player.style.display = "flex";
+}
+
+function toggle(){
+if(audio.paused){
+audio.play();
+}else{
+audio.pause();
+}
+}
+
+function closePlayer(){
+audio.pause();
+player.style.display = "none";
+}
+</script>
 
 </body>
 </html>
