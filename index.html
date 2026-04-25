@@ -3,63 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WELCOME ISHU MUSIC</title>
+    <title>Ishumusic - නිවහන</title>
     <style>
+        /* මූලික සැකසුම් */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #0f0f0f; /* කළු පැහැති පසුබිමක් (සංගීත වෙබ් අඩවි වලට ගැලපෙන) */
+            color: white;
             text-align: center;
         }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            font-size: 24px;
+
+        /* Navigation Menu එක */
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-        .container {
-            padding: 20px;
-        }
-        .main-image {
-            width: 80%;
-            max-width: 800px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            margin-top: 20px;
-        }
-        .description {
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            padding: 10px 25px;
+            margin: 0 10px;
             font-size: 18px;
-            color: #555;
-            margin: 20px;
+            font-weight: bold;
+            transition: 0.3s; /* වෙනස් වීමට ගතවන කාලය */
+            border-bottom: 3px solid transparent;
         }
+
+        /* Mouse එක උඩට අරන් යනකොට (Hover) වෙනස් වන විදිහ */
+        nav a:hover {
+            color: #ff4757; /* රතු පැහැයට හුරු පාටක් */
+            border-bottom: 3px solid #ff4757;
+            background-color: rgba(255, 71, 87, 0.1);
+            border-radius: 5px;
+        }
+
+        header {
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/1200/400');
+            background-size: cover;
+        }
+
+        .content-section {
+            padding: 50px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .main-image {
+            width: 90%;
+            max-width: 700px;
+            border-radius: 20px;
+            margin-top: 30px;
+            border: 2px solid #333;
+        }
+
         footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            background-color: #1a1a1a;
+            padding: 20px;
+            margin-top: 50px;
+            color: #777;
         }
     </style>
 </head>
 <body>
 
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
+
 <header>
-   - WELCOME ISHU MUSIC -
+    <h1>Ishumusic</h1>
+    <p>Welcome to Music world</p>
 </header>
 
-<div class="container">
-    <h2>welcome!</h2>
-    <p class="description">MUSIC IS LIFE CHANGE</p>
+<div class="content-section">
+    <h2>New Update</h2>
+    <p>Realse new Song</p>
     
-    <img src="https://picsum.photos/800/400" alt="image" class="main-image">
-    
-    <p class="description">Ishumusic is your ultimate destination for music lovers. Discover the latest songs, trending playlists, exclusive releases, and timeless classics all in one place. We bring rhythm, passion, and entertainment together to create the perfect sound experience for every mood. Stay connected with the world of music through Ishumusic..</p>
+    <img src="https://picsum.photos/700/350" alt="Music" class="main-image">
 </div>
 
 <footer>
-    © 2026 all rights reserved
+    © 2026 Ishumusic | all rights reserved
 </footer>
 
 </body>
