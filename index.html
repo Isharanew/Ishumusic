@@ -14,16 +14,60 @@ color:white;
 }
 
 /* NAV */
-nav{
-display:flex;
-justify-content:space-between;
-padding:20px 40px;
-background:rgba(0,0,0,0.7);
-position:sticky;
-top:0;
-backdrop-filter:blur(10px);
-border-bottom:1px solid #222;
-}
+{
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            padding: 10px 25px;
+            margin: 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s; /* වෙනස් වීමට ගතවන කාලය */
+            border-bottom: 3px solid transparent;
+        }
+
+        /* Mouse එක උඩට අරන් යනකොට (Hover) වෙනස් වන විදිහ */
+        nav a:hover {
+            color: #ff4757; /* රතු පැහැයට හුරු පාටක් */
+            border-bottom: 3px solid #ff4757;
+            background-color: rgba(255, 71, 87, 0.1);
+            border-radius: 5px;
+        }
+
+        header {
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/1200/400');
+            background-size: cover;
+        }
+
+        .content-section {
+            padding: 50px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .main-image {
+            width: 90%;
+            max-width: 700px;
+            border-radius: 20px;
+            margin-top: 30px;
+            border: 2px solid #333;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            padding: 20px;
+            margin-top: 50px;
+            color: #777;
+        }
 
 /* HERO */
 .hero{
