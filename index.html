@@ -13,29 +13,17 @@ background:linear-gradient(to bottom,#000,#111);
 color:white;
 }
 
-/* NAV */
-{
-            background-color: #1a1a1a;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        nav a {
-            color: #ddd;
-            text-decoration: none;
-            padding: 10px 25px;
-            margin: 0 10px;
-            font-size: 18px;
-            font-weight: bold;
-            transition: 0.3s; /* වෙනස් වීමට ගතවන කාලය */
-            border-bottom: 3px solid transparent;
-        }
-
-        /* Mouse එක උඩට අරන් යනකොට (Hover) වෙනස් වන විදිහ */
-        nav a:hover {
+/* NAV (CENTERED) */
+nav{
+text-align:center;
+padding:20px;
+background:rgba(0,0,0,0.7);
+position:sticky;
+top:0;
+backdrop-filter:blur(10px);
+border-bottom:1px solid #222;
+}
+nav a:hover {
             color: #ff4757; /* රතු පැහැයට හුරු පාටක් */
             border-bottom: 3px solid #ff4757;
             background-color: rgba(255, 71, 87, 0.1);
@@ -67,6 +55,21 @@ color:white;
             padding: 20px;
             margin-top: 50px;
             color: #777;
+        }
+nav h1{
+margin:0;
+font-size:28px;
+}
+
+nav div{
+margin-top:10px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+}
 
 /* HERO */
 .hero{
@@ -87,7 +90,6 @@ color:#bbb;
 max-width:400px;
 }
 
-/* BUTTON */
 .btn{
 padding:12px 18px;
 background:white;
@@ -98,11 +100,12 @@ cursor:pointer;
 margin-top:15px;
 }
 
-/* GRID */
+/* SECTION */
 .section{
 padding:40px;
 }
 
+/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -154,20 +157,27 @@ border:none;
 border-radius:8px;
 cursor:pointer;
 }
+
+/* FOOTER (CENTERED) */
+footer{
+text-align:center;
+padding:20px;
+border-top:1px solid #222;
+color:#888;
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAVigation -->
-    </style>
-</head>
-<body>
+<!-- NAV -->
 <nav>
-<h2>🎵 Ishumusic</h2>
-<a href="index.html">Home</a>
+<h1>🎵 Ishumusic</h1>
+<div>
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+</div>
 </nav>
 
 <!-- HERO -->
@@ -183,7 +193,7 @@ style="width:100%;max-width:400px;border-radius:20px;">
 </section>
 
 <!-- MUSIC -->
-<section class="section">
+<section id="music" class="section">
 <h2>Trending Music</h2>
 
 <div class="grid">
@@ -206,6 +216,14 @@ style="width:100%;max-width:400px;border-radius:20px;">
 </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="section">
+<h2>About Ishumusic</h2>
+<p style="color:#bbb;max-width:600px;">
+Modern music platform for discovering trending songs, playlists and premium vibes.
+</p>
+</section>
+
 <!-- PLAYER -->
 <div class="player" id="player">
 <span id="songName">Playing</span>
@@ -214,35 +232,33 @@ style="width:100%;max-width:400px;border-radius:20px;">
 <audio id="audio"></audio>
 </div>
 
+<!-- FOOTER -->
+<footer>
+© 2026 Ishumusic | ALL RIGHT RECEVED.
+</footer>
+
 <script>
-let audio = document.getElementById("audio");
-let player = document.getElementById("player");
-let songName = document.getElementById("songName");
+let audio=document.getElementById("audio");
+let player=document.getElementById("player");
+let songName=document.getElementById("songName");
 
 function playSong(src,name){
-audio.src = src;
+audio.src=src;
 audio.play();
-songName.innerText = name;
-player.style.display = "flex";
+songName.innerText=name;
+player.style.display="flex";
 }
 
 function toggle(){
-if(audio.paused){
-audio.play();
-}else{
-audio.pause();
-}
+if(audio.paused){audio.play();}
+else{audio.pause();}
 }
 
 function closePlayer(){
 audio.pause();
-player.style.display = "none";
+player.style.display="none";
 }
-
 </script>
-<footer>
-    © 2026 Ishumusic | ALL RIGHTS RESEVED.
-</footer>
 
 </body>
 </html>
